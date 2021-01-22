@@ -1,15 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>首页</title>
-</head>
-<body>
-<h1>用户是user:{{name}}</h1>
-<h2>年龄是age:{{age}}</h2>
-{% if sex %}
-<h2>性别是sex：{{sex}}</h2>
-{% endif %}
+{% extends 'base.html' %}
+{% block title %}
+首页
+{% endblock %}
+{% block main %}
+<div class="container">
+    <div class="list-group,">
+        {% for a in article %}
+        {% if a == article|first %}
+    <a href="/{{a.id}}" class="list-group-item active">
+      {{a.title}}
 
-</body>
-</html>
+  </a>
+        {% else %}
+  <a href="/{{a.id}}" class="list-group-item">
+        {{a.title}}
+  </a>
+        {% endif %}
+        {% endfor %}
+
+</div>
+</div>
+{% endblock %}
+
